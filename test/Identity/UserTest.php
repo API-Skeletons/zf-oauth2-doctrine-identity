@@ -45,6 +45,7 @@ class UserTest extends AbstractTest
         $this->assertTrue($identity->getUser() instanceof \ZFTest\OAuth2\Doctrine\Identity\Entity\User);
         $this->assertTrue($identity->getClient() instanceof \ZF\OAuth2\Doctrine\Entity\Client);
         $this->assertTrue($identity->getAccessToken() instanceof \ZF\OAuth2\Doctrine\Entity\AccessToken);
+        $this->assertTrue($identity->getAuthorization() instanceof \ZF\MvcAuth\Authorization\AuthorizationInterface);
         $this->assertEquals('doctrine', $identity->getRoleId());
         $this->assertTrue(is_array($identity->getAuthenticationIdentity()));
     }
