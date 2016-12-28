@@ -15,13 +15,13 @@ class AuthenticatedIdentity extends AbstractRbacRole implements
     use Uninvokable;
 
     protected $accessToken;
-    protected $authorization;
+    protected $authorizationService;
     protected $name = 'doctrine';
 
     public function __construct($accessToken, AuthorizationInterface $authorization)
     {
         $this->accessToken = $accessToken;
-        $this->authorization = $authorization;
+        $this->authorizationService = $authorizationService;
     }
 
     public function getAuthenticationIdentity()
@@ -33,15 +33,15 @@ class AuthenticatedIdentity extends AbstractRbacRole implements
         ];
     }
 
-    public function getAuthorization()
+    public function getAuthorizationService()
     {
-        return $this->authorization;
+        return $this->authorizationService;
     }
 
     public function isAuthorized($resource, $privilege)
     {
-        if ($this->authorization instanceof Acl) {
-            return $this->authorization->isAuthorized($this, $resource, $privilege);
+        if ($this->authorizationService instanceof Acl) {
+            return $this->authorizationService->isAuthorized($this, $resource, $privilege);
         } else {
             throw new Exception('isAuthorized is for ACL only.');
         }
