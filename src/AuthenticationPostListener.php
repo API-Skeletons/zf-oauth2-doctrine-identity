@@ -35,7 +35,7 @@ class AuthenticationPostListener
             throw new Exception\AccessTokenException('Access Token expected for authenticated identity not found');
         }
 
-        $doctrineAuthenticatedIdentity = new DoctrineAuthenticatedIdentity($accessToken);
+        $doctrineAuthenticatedIdentity = new DoctrineAuthenticatedIdentity($accessToken, $mvcAuthEvent->getAuthorizationService());
         $mvcAuthEvent->setIdentity($doctrineAuthenticatedIdentity);
     }
 

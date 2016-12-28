@@ -11,6 +11,11 @@ By default [zfcampus/zf-mvc-auth](https://github.com/zfcampus/zf-mvc-auth) retur
 [api-skeletons/zf-oauth2-doctrine](https://github.com/API-Skeletons/zf-oauth2-doctrine) supports multiple OAuth2 configurations and [api-skeletons/zf-oauth2-doctrine-identity](https://github.com/API-Skeletons/zf-oauth2-doctrine-identity) searches through each configuration to find the `AccessToken` entity based on the `access_token` and `client_id` supplied by [`ZF\MvcAuth\Identity\AuthenticatedIdentity`](https://github.com/zfcampus/zf-mvc-auth/blob/master/src/Identity/AuthenticatedIdentity.php).
 
 
+Authorization
+-------------
+
+The zf-mvc-auth Authorization Service is injected into the `AuthenticatedIdentity`.  You may fetch the Authorization Service with `$identity->getAuthorizationService()`.  There is a convenience method for ACL `$identity->isAuthorized($resource, $privilege)`.
+
 Installation
 ------------
 Installation of this module uses composer. For composer documentation, please refer to [getcomposer.org](http://getcomposer.org/).
