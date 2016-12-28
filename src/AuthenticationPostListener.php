@@ -36,6 +36,7 @@ class AuthenticationPostListener
         }
 
         $doctrineAuthenticatedIdentity = new DoctrineAuthenticatedIdentity($accessToken, $mvcAuthEvent->getAuthorizationService());
+        $mvcAuthEvent->getMvcEvent()->setParam('ZF\MvcAuth\Identity', $doctrineAuthenticatedIdentity);
         $mvcAuthEvent->setIdentity($doctrineAuthenticatedIdentity);
     }
 
