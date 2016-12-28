@@ -18,7 +18,7 @@ class AuthenticatedIdentity extends AbstractRbacRole implements
     protected $authorizationService;
     protected $name = 'doctrine';
 
-    public function __construct($accessToken, AuthorizationInterface $authorization)
+    public function __construct($accessToken, AuthorizationInterface $authorizationService)
     {
         $this->accessToken = $accessToken;
         $this->authorizationService = $authorizationService;
