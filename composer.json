@@ -1,0 +1,49 @@
+{
+    "name": "api-skeletons/zf-oauth2-doctrine-identity",
+    "description": "Doctrine Enabled AuthenticatedIdentity",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "oauth2",
+        "doctrine",
+        "apigility",
+        "identity"
+    ],
+    "authors": [
+        {
+            "name": "Tom H Anderson",
+            "email": "tom.h.anderson@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "container-interop/container-interop": "^1.1",
+        "api-skeletons/zf-oauth2-doctrine": "^1.1",
+        "gianarb/angry": "^0.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "satooshi/php-coveralls": "^1.0",
+        "squizlabs/php_codesniffer": "^2.7",
+        "zendframework/zend-test": "^3.0",
+        "zfcampus/zf-apigility": "^1.3",
+        "zfcampus/zf-apigility-doctrine": "^2.1",
+        "zendframework/zend-i18n": "^2.7",
+        "zendframework/zend-hydrator": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZF\\OAuth2\\Doctrine\\Identity\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ZFTest\\OAuth2\\Doctrine\\Identity\\": "test/"
+        }
+    },
+    "extra": {
+        "zf": {
+            "module": "ZF\\OAuth2\\Doctrine\\Identity"
+        }
+    }
+}

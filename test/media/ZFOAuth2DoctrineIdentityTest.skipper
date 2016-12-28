@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<skipper version="3.2.7.1338" mvc="Without MVC" orm="Doctrine2" name="zf-oauth2-doctrine-identity" uuid="b9373761-2af6-4a3b-88c8-6291e4b09235">
+  <module name="\ACL" local-name="ACL" namespace="\ZFTest\OAuth2\Doctrine\Identity\Entity" local-namespace="ZFTest\OAuth2\Doctrine\Identity\Entity" export-format="Doctrine2Xml" export-path="../asset/module/Doctrine/config/orm" uuid="b6eeda23-9d51-4019-99a0-544a7d024c24">
+    <entity name="\ZFTest\OAuth2\Doctrine\Identity\Entity\User" local-name="User" namespace="\ZFTest\OAuth2\Doctrine\Identity\Entity" uuid="888a6a37-9d0c-497f-accc-ec5ab40235fe">
+      <field name="id" type="bigint" required="true" unique="true" primary="true" auto-increment="true" uuid="5f7ae726-7073-4df0-a9d2-06724ad89d60"/>
+      <field name="username" type="string" uuid="37cec636-9384-429b-8014-f291e8522298"/>
+      <field name="password" type="string" uuid="6347ec81-1bc9-48cc-827a-de6e307794d0"/>
+      <field name="profile" type="string" uuid="0c049d76-3b3e-43d1-801f-7fc0cf6e40f5"/>
+      <field name="email" type="string" uuid="ae31c4d1-72b2-45e0-b5e7-5e1f8d7de4ec"/>
+      <field name="country" type="string" uuid="9ddfb561-3a21-41eb-8d3e-69f66b20cb0e"/>
+      <field name="phone_number" type="string" uuid="b14d9816-c805-48b2-96f9-a31b69834273"/>
+    </entity>
+    <comment caption="Data Architect" description="tom.h.anderson@gmail.com" uuid="d458614b-11eb-4480-ac8c-76ac2e43e5a2"/>
+  </module>
+  <visual-data>
+    <comment uuid="d458614b-11eb-4480-ac8c-76ac2e43e5a2" bg-color="#FFFFE0" position-x="317" position-y="175" size-x="0" size-x2="121" size-y="0" size-y2="30" txt-color="#000000"/>
+    <entity uuid="888a6a37-9d0c-497f-accc-ec5ab40235fe" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="10" position-y="20"/>
+    <module uuid="b6eeda23-9d51-4019-99a0-544a7d024c24" bg-color="#E7F5FD" position-x="35" position-y="44" size-x="11" size-x2="452" size-y="22" size-y2="218"/>
+    <project uuid="b9373761-2af6-4a3b-88c8-6291e4b09235" size-x="26" size-x2="537" size-y="28" size-y2="312"/>
+  </visual-data>
+</skipper>

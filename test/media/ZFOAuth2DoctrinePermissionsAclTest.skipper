@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<skipper version="3.2.7.1338" mvc="Without MVC" orm="Doctrine2" name="zf-oauth2-doctrine-permissions-acl" uuid="b9373761-2af6-4a3b-88c8-6291e4b09235">
+  <module name="\ACL" local-name="ACL" namespace="\ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity" local-namespace="ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity" export-format="Doctrine2Xml" export-path="../asset/module/Doctrine/config/orm" uuid="b6eeda23-9d51-4019-99a0-544a7d024c24">
+    <entity name="\ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity\User" local-name="User" namespace="\ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity" uuid="888a6a37-9d0c-497f-accc-ec5ab40235fe">
+      <field name="id" type="bigint" required="true" unique="true" primary="true" auto-increment="true" uuid="5f7ae726-7073-4df0-a9d2-06724ad89d60"/>
+      <field name="username" type="string" uuid="37cec636-9384-429b-8014-f291e8522298"/>
+      <field name="password" type="string" uuid="6347ec81-1bc9-48cc-827a-de6e307794d0"/>
+      <field name="profile" type="string" uuid="0c049d76-3b3e-43d1-801f-7fc0cf6e40f5"/>
+      <field name="email" type="string" uuid="ae31c4d1-72b2-45e0-b5e7-5e1f8d7de4ec"/>
+      <field name="country" type="string" uuid="9ddfb561-3a21-41eb-8d3e-69f66b20cb0e"/>
+      <field name="phone_number" type="string" uuid="b14d9816-c805-48b2-96f9-a31b69834273"/>
+    </entity>
+    <entity name="\ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity\Role" local-name="Role" namespace="\ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity" uuid="59150071-f917-499b-8c8f-e656acf884a3">
+      <field name="id" type="bigint" required="true" unique="true" primary="true" auto-increment="true" uuid="6f7cd2b0-4391-41d2-9705-690cb0bc5a25"/>
+      <field name="roleId" type="string" required="true" uuid="4a11fe43-9429-4011-a24d-94486f3d4e5f"/>
+      <field name="role_id" type="integer" uuid="b8147cd8-d37f-4eee-99f9-a1ac0d47362f"/>
+    </entity>
+    <association from="\ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity\Role" to="\ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity\Role" caption="Parent Child" owner-alias="child" inverse-alias="parent" many-owner="true" many-inverse="false" uuid="ed955ccb-445b-47d9-af6f-784a24f96bc7">
+      <association-field from="role_id" to="id"/>
+    </association>
+    <entity name="\ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity\UserToRole" local-name="UserToRole" namespace="\ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity" uuid="85f0eaf8-4362-4d64-8aaa-248ce7aa7b31">
+      <field name="user_id" type="bigint" required="true" primary="true" uuid="195f9d6d-1053-4b14-a801-9be99d148c51"/>
+      <field name="role_id" type="bigint" required="true" primary="true" uuid="d0ad7bea-3f51-4cd8-ac88-e3094ea620a7"/>
+    </entity>
+    <many-to-many mn-entity="\ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity\UserToRole" uuid="520341ba-c82d-450d-a590-69ae6f6687d1">
+      <many-to-many-entity name="\ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity\Role" owning-side="true" alias="role" uuid="20a20d1d-206a-4d42-9142-b11728b21683">
+        <many-to-many-field from="role_id" to="id"/>
+      </many-to-many-entity>
+      <many-to-many-entity name="\ZFTest\OAuth2\Doctrine\Permissions\Acl\Entity\User" owning-side="false" alias="user" uuid="b1e58bdf-b594-492c-a10a-12651e99235d">
+        <many-to-many-field from="user_id" to="id"/>
+      </many-to-many-entity>
+    </many-to-many>
+    <comment caption="$user-&gt;getRole()" uuid="6237a60c-447d-4dab-8bc1-ffd9b97b307d"/>
+    <comment caption="Data Architect" description="tom.h.anderson@gmail.com" uuid="d458614b-11eb-4480-ac8c-76ac2e43e5a2"/>
+  </module>
+  <visual-data>
+    <association uuid="ed955ccb-445b-47d9-af6f-784a24f96bc7" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="-20" color="#969696"/>
+    <comment uuid="6237a60c-447d-4dab-8bc1-ffd9b97b307d" bg-color="#FFFFE0" position-x="172" position-y="87" size-x="0" size-x2="79" size-y="0" size-y2="20" txt-color="#000000"/>
+    <comment uuid="d458614b-11eb-4480-ac8c-76ac2e43e5a2" bg-color="#FFFFE0" position-x="317" position-y="175" size-x="0" size-x2="121" size-y="0" size-y2="30" txt-color="#000000"/>
+    <entity uuid="59150071-f917-499b-8c8f-e656acf884a3" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="328" position-y="13" size-x="0" size-x2="87" size-y="0" size-y2="59"/>
+    <entity uuid="85f0eaf8-4362-4d64-8aaa-248ce7aa7b31" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="172" position-y="12" size-x="0" size-x2="84" size-y="0" size-y2="60"/>
+    <entity uuid="888a6a37-9d0c-497f-accc-ec5ab40235fe" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="10" position-y="20"/>
+    <many-to-many-association uuid="520341ba-c82d-450d-a590-69ae6f6687d1" color="#969696"/>
+    <module uuid="b6eeda23-9d51-4019-99a0-544a7d024c24" bg-color="#E7F5FD" position-x="35" position-y="44" size-x="11" size-x2="452" size-y="22" size-y2="218"/>
+    <project uuid="b9373761-2af6-4a3b-88c8-6291e4b09235" size-x="26" size-x2="537" size-y="28" size-y2="312"/>
+  </visual-data>
+</skipper>
