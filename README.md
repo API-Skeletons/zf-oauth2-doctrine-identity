@@ -4,12 +4,6 @@ OAuth2 Doctrine Identity
 [![Build Status](https://travis-ci.org/API-Skeletons/zf-oauth2-doctrine-identity.svg)](https://travis-ci.org/API-Skeletons/zf-oauth2-doctrine-identity)
 [![Total Downloads](https://poser.pugx.org/api-skeletons/zf-oauth2-doctrine-identity/downloads)](https://packagist.org/packages/api-skeletons/zf-oauth2-doctrine-identity)
 
-About
------
-
-This provides a Doctrine enabled AuthenticatedIdentity to replace the AuthenticatedIdentity from zfcampus/zf-mvc-auth
-
-
 Installation
 ------------
 Installation of this module uses composer. For composer documentation, please refer to [getcomposer.org](http://getcomposer.org/).
@@ -27,7 +21,7 @@ This will be added to your application's list of modules:
 ),
 ```
 
-Authentication Identity
+Authenticated Identity
 -----------------------
 
 By default [zfcampus/zf-mvc-auth](https://github.com/zfcampus/zf-mvc-auth) reutrns an [`ZF\MvcAuth\Identity\AuthenticatedIdentity`](https://github.com/zfcampus/zf-mvc-auth/blob/master/src/Identity/AuthenticatedIdentity.php) when authenticated with a valid access token.  This repository replaces that identity with a [`ZF\OAuth2\Doctrine\Permissions\Acl\Identity\AuthenticatedIdentity`](https://github.com/API-Skeletons/zf-oauth2-doctrine-permissions-acl/blob/master/src/Identity/AuthenticatedIdentity.php).
