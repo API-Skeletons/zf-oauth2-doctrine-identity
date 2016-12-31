@@ -52,6 +52,12 @@ class AuthenticatedIdentity extends AbstractRbacRole implements
         return $this->getName();
     }
 
+    // For ZF\OAuth2\Provider\UserId\AuthenticationService
+    public function getId()
+    {
+        return $this->getUser()->getId();
+    }
+
     public function getUser()
     {
         return $this->accessToken->getUser();
