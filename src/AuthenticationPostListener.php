@@ -26,12 +26,12 @@ class AuthenticationPostListener
     public function __invoke(MvcAuthEvent $mvcAuthEvent)
     {
         $identity = $mvcAuthEvent->getAuthenticationService()->getIdentity();
-        if (! $identity instanceof MvcAuthAuthenticatedIdentity) {
+        if (!$identity instanceof MvcAuthAuthenticatedIdentity) {
             return;
         }
 
         $accessToken = $this->findAccessToken($identity->getAuthenticationIdentity());
-        if (! $accessToken) {
+        if (!$accessToken) {
             throw new Exception\AccessTokenException('Access Token expected for authenticated identity not found');
         }
 
@@ -46,22 +46,22 @@ class AuthenticationPostListener
         $config = $this->container->get('config');
 
         foreach ($config['zf-oauth2-doctrine'] as $oauth2Config) {
-			if (array_key_exists('object_manager', $oauth2Config)) {
-				$objectManager = $this->container->get($oauth2Config['object_manager']);
-				$accessTokenRepository = $objectManager->getRepository($oauth2Config['mapping']['AccessToken']['entity']);
+            if (array_key_exists('object_manager', $oauth2Config)) {
+                $objectManager = $this->container->get($oauth2Config['object_manager']);
+                $accessTokenRepository = $objectManager->getRepository($oauth2Config['mapping']['AccessToken']['entity']);
 
-				$accessToken = $accessTokenRepository->findOneBy([
-					$oauth2Config['mapping']['AccessToken']['mapping']['access_token']['name']
-						=> $identity['access_token'],
-				]);
+                $accessToken = $accessTokenRepository->findOneBy([
+                    $oauth2Config['mapping']['AccessToken']['mapping']['access_token']['name']
+                    => $identity['access_token'],
+                ]);
 
-				if ($accessToken) {
-					if ($accessToken->getClient()->getClientId() == $identity['client_id']) {
-						// Match found
-						return $accessToken;
-					}
-				}
-			}
+                if ($accessToken) {
+                    if ($accessToken->getClient()->getClientId() == $identity['client_id']) {
+                        // Match found
+                        return $accessToken;
+                    }
+                }
+            }
         }
     }
 }
