@@ -48,6 +48,13 @@ class AuthenticatedIdentity extends AbstractRbacRole implements
         }
     }
 
+    public function setName($name) 
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
     public function getRoleId()
     {
         return $this->getName();
