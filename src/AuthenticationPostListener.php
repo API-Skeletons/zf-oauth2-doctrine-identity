@@ -6,7 +6,7 @@ use Interop\Container\ContainerInterface;
 use ZF\MvcAuth\MvcAuthEvent;
 use ZF\MvcAuth\Identity\AuthenticatedIdentity as MvcAuthAuthenticatedIdentity;
 use ZF\OAuth2\Doctrine\Identity\AuthenticatedIdentity as DoctrineAuthenticatedIdentity;
-use ZF\OAuth2\Doctrine\Identity\Exception;
+use ZF\OAuth2\Doctrine\Identity\AccessTokenException;
 use GianArb\Angry\Unclonable;
 use GianArb\Angry\Unserializable;
 
@@ -32,7 +32,7 @@ class AuthenticationPostListener
 
         $accessToken = $this->findAccessToken($identity->getAuthenticationIdentity());
         if (!$accessToken) {
-            throw new Exception\AccessTokenException('Access Token expected for authenticated identity not found');
+            throw new AccessTokenException('Access Token expected for authenticated identity not found');
         }
 
         $doctrineAuthenticatedIdentity = new DoctrineAuthenticatedIdentity($accessToken, $mvcAuthEvent->getAuthorizationService());
@@ -52,7 +52,7 @@ class AuthenticationPostListener
 
                 $accessToken = $accessTokenRepository->findOneBy([
                     $oauth2Config['mapping']['AccessToken']['mapping']['access_token']['name']
-                    => $identity['access_token'],
+                    => array_key_exists('access_token', $identity) ? $identity['access_token'] : $identity['id'],
                 ]);
 
                 if ($accessToken) {
