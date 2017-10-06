@@ -8,9 +8,18 @@ use Zend\Mvc\MvcEvent;
 
 class Module
 {
+    /**
+     * Provide default configuration.
+     *
+     * @param return array
+     */
     public function getConfig()
     {
-        return include __DIR__ . '/../config/module.config.php';
+        $provider = new ConfigProvider();
+
+        return [
+            'service_manager' => $provider->getDependencyConfig(),
+        ];
     }
 
     public function getAutoloaderConfig()

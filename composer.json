@@ -15,10 +15,10 @@
             "email": "tom.h.anderson@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
+        "php": "^7.1",
         "container-interop/container-interop": "^1.1",
-        "api-skeletons/zf-oauth2-doctrine": "^1.1",
+        "api-skeletons/zf-oauth2-doctrine": "~2.0",
         "gianarb/angry": "^0.1"
     },
     "require-dev": {
@@ -43,7 +43,8 @@
     },
     "extra": {
         "zf": {
-            "module": "ZF\\OAuth2\\Doctrine\\Identity"
+            "component": "ZF\\OAuth2\\Doctrine\\Identity",
+            "config-provider": "ZF\\OAuth2\\Doctrine\\ConfigProvider"
         }
     }
 }
