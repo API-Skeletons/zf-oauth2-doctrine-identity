@@ -2,3 +2,5 @@ vendor
 *~
 .DS_Store
 composer.lock
+test/asset/autoload/oauth2.doctrine-orm.global.php
+test/coverage

@@ -24,6 +24,13 @@ class Bootstrap
 
     public static function init()
     {
+        $config = __DIR__ . '/asset/autoload/oauth2.doctrine-orm.global.php';
+        copy(
+            __DIR__ . '/../vendor/api-skeletons/zf-oauth2-doctrine/config/oauth2.doctrine-orm.global.php.dist',
+            $config
+        );
+        `find $config -type f -exec sed -i '' -e 's/ZFTest\\\\OAuth2\\\\Doctrine\\\\Entity\\\\User/ZFTest\\\\OAuth2\\\\Doctrine\\\\Identity\\\\Entity\\\\User/g' {} \;`;
+
         static::initAutoloader();
     }
 

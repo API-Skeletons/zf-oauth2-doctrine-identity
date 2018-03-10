@@ -18,7 +18,7 @@
     "require": {
         "php": "^7.1",
         "container-interop/container-interop": "^1.1",
-        "api-skeletons/zf-oauth2-doctrine": "~2.0",
+        "api-skeletons/zf-oauth2-doctrine": "~2.0 || ^3.0",
         "gianarb/angry": "^0.1"
     },
     "require-dev": {
