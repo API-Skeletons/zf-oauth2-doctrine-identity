@@ -2,6 +2,7 @@ OAuth2 Doctrine Identity
 ------------------------
 
 [![Build Status](https://travis-ci.org/API-Skeletons/zf-oauth2-doctrine-identity.svg)](https://travis-ci.org/API-Skeletons/zf-oauth2-doctrine-identity)
+[![Gitter](https://badges.gitter.im/api-skeletons/open-source.svg)](https://gitter.im/api-skeletons/open-source)
 [![Total Downloads](https://poser.pugx.org/api-skeletons/zf-oauth2-doctrine-identity/downloads)](https://packagist.org/packages/api-skeletons/zf-oauth2-doctrine-identity)
 
 Versions
