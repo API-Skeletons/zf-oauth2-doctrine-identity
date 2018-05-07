@@ -18,7 +18,8 @@
     "require": {
         "php": "^7.1",
         "container-interop/container-interop": "^1.1",
-        "api-skeletons/zf-oauth2-doctrine": "~2.0 || ^3.0",
+        "api-skeletons/zf-oauth2-doctrine": "^3.1",
+        "bshaffer/oauth2-server-php": "^1.10",
         "gianarb/angry": "^0.1"
     },
     "require-dev": {
@@ -29,7 +30,8 @@
         "zfcampus/zf-apigility-doctrine": "^2.1",
         "zendframework/zend-i18n": "^2.7",
         "zendframework/zend-hydrator": "^2.2",
-        "api-skeletons/coding-standard": "^1.0"
+        "api-skeletons/coding-standard": "^1.0",
+        "phpro/zf-doctrine-hydration-module": "^2.0 || ^3.0"
     },
     "autoload": {
         "psr-4": {

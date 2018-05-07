@@ -4,12 +4,12 @@ namespace ZF\OAuth2\Doctrine\Identity;
 
 use ZF\MvcAuth\Identity\IdentityInterface;
 use ZF\MvcAuth\Authorization\AuthorizationInterface;
-use Zend\Permissions\Rbac\AbstractRole as AbstractRbacRole;
+use Zend\Permissions\Rbac\Role as RbacRole;
 use Zend\Permissions\Acl\Acl;
 use ZF\OAuth2\Doctrine\Identity\Exception;
 use GianArb\Angry\Uninvokable;
 
-class AuthenticatedIdentity extends AbstractRbacRole implements
+class AuthenticatedIdentity extends RbacRole implements
     IdentityInterface
 {
     use Uninvokable;

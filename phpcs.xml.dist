@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <ruleset name="API Skeletons" namespace="API-Skeletons\CS\Standard">
     <description>v1.0 Coding Standard for API Skeletons</description>
+    <arg name="colors"/>
+    <arg value="sp"/>
     <file>src</file>
     <file>test</file>
     <exclude-pattern type="relative">Bootstrap.php</exclude-pattern>
     <exclude-pattern type="relative">*/data/*</exclude-pattern>
-    <arg name="colors"/>
     <rule ref="PSR1"/>
     <rule ref="PSR2"/>
     <rule ref="Generic.Arrays.ArrayIndent"/>
