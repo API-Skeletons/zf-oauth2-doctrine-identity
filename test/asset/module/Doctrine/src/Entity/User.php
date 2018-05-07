@@ -56,7 +56,7 @@ class User implements
 
     public function getArrayCopy()
     {
-        return array(
+        return [
             'id' => $this->getId(),
             'username' => $this->getUsername(),
             'password' => $this->getPassword(),
@@ -65,7 +65,7 @@ class User implements
             'country' => $this->getCountry(),
             'phone_number' => $this->getPhoneNumber(), // underscore formatting for openid
             'phoneNumber' => $this->getPhoneNumber(),
-        );
+        ];
     }
 
     public function getRole()

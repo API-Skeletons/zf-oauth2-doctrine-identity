@@ -15,24 +15,41 @@ matrix:
   include:
     - php: 7.1
       env:
-        - EXECUTE_COVERAGE=true
+        - DEPS=lowest
+    - php: 7.1
+      env:
         - DEPS=latest
+        - EXECUTE_COVERAGE=true
+        - EXECUTE_CS_CHECK=true 
+    - php: 7.2
+      env:
+        - DEPS=lowest
+    - php: 7.2
+      env:
+        - DEPS=latest
+    - php: nightly
+
+  allow_failures:
+    - php: nightly
 
 before_install:
-  - if [[ $EXECUTE_COVERAGE != 'true' ]]; then phpenv config-rm xdebug.ini || return 0 ; fi
-  - composer self-update
+  - shopt -s expand_aliases
   - chmod -R +rwX test/asset/data
+  - if [[ $EXECUTE_COVERAGE != "true" ]]; then phpenv config-rm xdebug.ini || return 0 ; fi
+  - composer self-update
+  - composer --version
+  - php -v
+  - php -m
 
 install:
-  - if [[ $DEPS == 'latest' ]]; then travis_retry composer update $COMPOSER_ARGS ; fi
+  - if [[ $DEPS == "lowest" ]]; then travis_retry composer update --prefer-lowest --prefer-stable $COMPOSER_ARGS ; fi
+  - if [[ $DEPS == "latest" ]]; then travis_retry composer update $COMPOSER_ARGS ; fi
   - travis_retry composer install $COMPOSER_ARGS
   - composer show --installed
 
 script:
-  - mkdir -p build/logs
-  - if [[ EXECUTE_COVERAGE == 'true' ]]; then ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml ; fi
-  - if [[ EXECUTE_COVERAGE != 'true' ]]; then ./vendor/bin/phpunit ; fi
-  - if [[ $EXECUTE_CS_CHECK == 'true' ]]; then ./vendor/bin/phpcs --standard=PSR2 --ignore=test/Bootstrap.php src test; fi
+  - if [[ $EXECUTE_COVERAGE == "true" ]] ; then travis_retry vendor/bin/phpunit --coverage-clover build/logs/clover.xml; else travis_retry vendor/bin/phpunit ; fi
+  - if [[ $EXECUTE_CS_CHECK == "true" ]] ; then travis_retry vendor/bin/phpcs ; fi
 
 after_script:
-  - php vendor/bin/coveralls
+  - if [[ $EXECUTE_COVERAGE == "true" ]] ; then travis_retry php vendor/bin/coveralls ; fi

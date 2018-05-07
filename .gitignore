@@ -4,3 +4,6 @@ vendor
 composer.lock
 test/asset/autoload/oauth2.doctrine-orm.global.php
 test/coverage
+phpcs.xml
+phpunit.xml
+test/build

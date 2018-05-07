@@ -20,7 +20,7 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
         $config = $this->getApplication()->getConfig();
         $doctrineAdapter = $serviceManager->get('oauth2.doctrineadapter.default');
 
-        return array(array($doctrineAdapter));
+        return [[$doctrineAdapter]];
     }
 
     protected function tearDown()
@@ -98,10 +98,10 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
             $client = new Entity\Client();
             $client->setClientId('oauth_test_client');
             $client->setSecret($bcrypt->create('testpass'));
-            $client->setGrantType(array(
+            $client->setGrantType([
                 'implicit',
                 'password',
-            ));
+            ]);
             $client->setUser($user);
             $client->addScope($scope);
             $scope->addClient($client);
@@ -109,10 +109,10 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
             $client2 = new Entity\Client();
             $client2->setClientId('oauth_test_client2');
             $client2->setSecret($bcrypt->create('testpass'));
-            $client2->setGrantType(array(
+            $client2->setGrantType([
                 'implicit',
                 'password',
-            ));
+            ]);
             $client2->setUser($user2);
 
             $client3 = new Entity\Client();
